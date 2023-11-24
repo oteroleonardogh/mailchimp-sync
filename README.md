@@ -7,8 +7,9 @@ This application syncs contacts from MockAPI to Mailchimp. It's built using Node
 ## Features
 
 - Sync contacts from a predefined MockAPI to a Mailchimp list.
-- Sync works in parallel without exceding Mailchimp API concurrency limit.
-- Uses Fastify for efficient server-side operations.
+- Sync works in parallel without exceeding Mailchimp API concurrency limit.
+- Uses a Serverless approach for efficient and autoscalable operations.
+- Out of the box ready to be deployed in Vercel
 - Unit tests with Jest.
 
 ## Project Walkthrough Video
@@ -26,7 +27,7 @@ For a detailed walkthrough of this project, watch my video here: [Video Link](vi
 1. **Clone the Repository**
 
 ```bash
-git clone [repository-url]
+git clone [[repository-url]](https://github.com/oteroleonardogh/mailchimp-sync.git)
 cd mailchimp-sync
 ```
 
@@ -51,7 +52,7 @@ MAILCHIMP_INITIAL_CONTACT_STATUS=subscribed
 
 MAILCHIMP_CAMPAIGN_FROM_NAME=Leonardo Otero
 MAILCHIMP_CAMPAIGN_FROM_EMAIL=oteroleonardo@gmail.com
-MAILCHIMP_CAMPAIGN_LANGUAJE=EN_US
+MAILCHIMP_CAMPAIGN_LANGUAGE=EN_US
 
 MAILCHIMP_FOOTER_CONTACT_INFO_COMPANY=company
 MAILCHIMP_FOOTER_CONTACT_INFO_ADDRESS1=Address 1
@@ -75,14 +76,71 @@ To run the unit tests, execute:
 npm test
 ```
 
-## Starting the Server
+## Deploying Sync service
 
-To start the server, run:
+To deploy and try the Sync service you will need to install vercel-cli:
 
 ```bash
-npm start
+npm i -g vercel
 ```
+
+Once installed vercel-cli, you will need to sign-up and login with you Vercel user:
+
+```bash
+vercel login oteroleonardo@gmail.com
+```
+
+Now you can deploy and try the Sync service so in the project root folder execute the following command:
+
+```bash
+vercel
+```
+
+The Vercel command should print out a message with a *Preview URL* like the following one after completing its deployment:
+
+```bash
+Vercel CLI 32.5.6
+🔍  Inspect: https://vercel.com/leonardo-oteros-projects/mailchimp-sync/H35SnuZqKAydoKGzise7T4LtwptW [3s]
+✅  Preview: https://mailchimp-sync-m04zsmxrv-leonardo-oteros-projects.vercel.app [3s]
+📝  To deploy to production (mailchimp-sync.vercel.app), run `vercel --prod`
+```
+
+## Credentials Security Considerations
+
+As there are critical values like MAILCHIMP_API_KEY that should not be openly shared, Vercel provides a solution. The first time you deploy the *mailchimp-sync* project, go to the project's settings and add a valid MAILCHIMP_API_KEY entry in the Environment Variables section. This will replace the placeholder value in the .env file. You may need to redeploy the project for this change to take effect.
 
 ## Usage
 
-After starting the server, you can access the service at `http://localhost:<PORT>/contacts/sync` to synchronize the contacts from MockAPI to Mailchimp.
+After deploying and starting the Sync service you should be able to access it by appending `/contacts/sync` to the URL provided by Vercel (e.g. https://mailchimp-sync-m04zsmxrv-leonardo-oteros-projects.vercel.app/contacts/sync). The Sync service should be launched and provide a response like the following one:
+
+```yaml
+{
+    "syncedContacts":24,
+    "contacts":[
+                {"firstName":"Michelle","lastName":"Gaylord","email":"Kirk.Fritsch424@yahoo.com"},
+                {"firstName":"Deborah","lastName":"Schinner","email":"Corbin.Abshire32@yahoo.com"},
+                {"firstName":"Jessika","lastName":"Auer","email":"Dillon167@hotmail.com"},
+                {"firstName":"Geo","lastName":"Schmitt","email":"Cierra_Walsh683@gmail.com"},
+                {"firstName":"Floyd","lastName":"Gerlach","email":"Adalberto91@icloud.com"},
+                {"firstName":"Hoyt","lastName":"Grady","email":"Elvie.Hagenes631@hotmail.com"},
+                {"firstName":"Royce","lastName":"Kunze","email":"Dallin_Powlowski999@gmail.com"},
+                {"firstName":"Eileen","lastName":"Schowalter","email":"Jameson698@yahoo.com"},
+                {"firstName":"Leonie","lastName":"Strosin","email":"Raheem.DAmore433@yahoo.com"},
+                {"firstName":"Noemie","lastName":"Gleichner","email":"Cristina538@icloud.com"},
+                {"firstName":"Kaleb","lastName":"Robel","email":"Leonel.Sipes132@gmail.com"},
+                {"firstName":"Harold","lastName":"Mann","email":"Alexys_Aufderhar172@hotmail.com"},
+                {"firstName":"Danyka","lastName":"Witting","email":"Jamil787@yahoo.com"},
+                {"firstName":"Alvena","lastName":"Marks","email":"Trace.Johnston464@icloud.com"},
+                {"firstName":"Christopher","lastName":"Marquardt","email":"Felipe25@outlook.com"},
+                {"firstName":"Tod","lastName":"Stehr","email":"Reginald_Bechtelar651@hotmail.com"},
+                {"firstName":"Delphia","lastName":"Huels","email":"Myrtis668@icloud.com"},
+                {"firstName":"Nels","lastName":"Brakus","email":"Rebeka_Thompson946@gmail.com"},
+                {"firstName":"Bethel","lastName":"Rau","email":"Benedict_Kunze777@gmail.com"},
+                {"firstName":"Charley","lastName":"Hermann","email":"Jennie.Kessler284@outlook.com"},
+                {"firstName":"Cole","lastName":"Zieme","email":"Terrance182@outlook.com"},
+                {"firstName":"Lee","lastName":"Runolfsson","email":"Jackie675@gmail.com"},
+                {"firstName":"Zander","lastName":"Greenholt","email":"Austin545@yahoo.com"},
+                {"firstName":"Rene","lastName":"Nienow","email":"Michael_Dach764@outlook.com"}
+    ]
+}
+```

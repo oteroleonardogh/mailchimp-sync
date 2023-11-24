@@ -27,7 +27,7 @@ const config = {
             from_name: process.env.MAILCHIMP_CAMPAIGN_FROM_NAME,
             from_email: process.env.MAILCHIMP_CAMPAIGN_FROM_EMAIL,
             subject: process.env.MAILCHIMP_CAMPAIGN_SUBJECT,
-            language: process.env.MAILCHIMP_CAMPAIGN_LANGUAJE,
+            language: process.env.MAILCHIMP_CAMPAIGN_LANGUAGE,
         },
     },
 };
