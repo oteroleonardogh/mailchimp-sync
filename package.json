@@ -1,0 +1,25 @@
+{
+  "name": "mailchimp-sync",
+  "version": "1.0.0",
+  "description": "Syncs contacts from MockAPI to Mailchimp",
+  "main": "server.js",
+  "engines": {
+    "node": "18.15.0"
+  },  
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest"
+  },
+  "author": "Leonardo Otero <oteroleonardo@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.24.3",
+    "pino": "^8.16.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
