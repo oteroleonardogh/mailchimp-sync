@@ -1,7 +1,7 @@
 const mailchimp = require('@mailchimp/mailchimp_marketing');
-const config = require('./config');
+const config = require('../../config');
 const axios = require('axios');
-const log = require('./logger');
+const log = require('../../logger');
 
 const API_CONTACTS_URL = config.API_BASE_URL + '/contacts';
 
@@ -59,37 +59,6 @@ async function addMailchimpContact(listId, contact) {
     }
   });
 
-  return response;
-}
-
-async function sync2() {
-  await ping();
-  const list = await setupList();
-  const sourceContacts = await getApiContacts();
-  const response = {
-    sincedContacts: 0,
-    contacts: [],
-  };
-
-  for (const contact of sourceContacts) {
-    try {
-      await addMailchimpContact(list.id, contact); // TODO Check options like bulk creation, or promiseAll.
-      const {
-        firstName,
-        lastName,
-        email,
-      } = contact;
-      response.sincedContacts ++;
-      response.contacts.push({
-        firstName,
-        lastName,
-        email,
-      });
-    } catch (err) {
-      log.error('Error Adding contact to Mailchimp list:', err);
-    }
-  }
- 
   return response;
 }
 

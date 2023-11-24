@@ -1,0 +1,9 @@
+{
+    "routes": [
+        {
+            "method": "GET",
+            "src": "/contacts/sync",
+            "dest": "/api/contacts/sync.js"
+        }
+    ]
+}

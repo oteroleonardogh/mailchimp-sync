@@ -1,7 +1,6 @@
-// api/contacts/sync.js
-const fastify = require('../../app'); // Adjust the path to where your Fastify app is initialized
+const { sync } = requiere('../../services/contacts');
 
 module.exports = async (req, res) => {
-    await fastify.ready();
-    fastify.server.emit('request', req, res);
+    const synchedContacts = await sync();
+    res.json(synchedContacts);
 };

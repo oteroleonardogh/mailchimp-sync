@@ -1,4 +1,4 @@
-const { sync } = require('./service');
+const { sync } = require('./services/contacts');
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 const axios = require('axios');
 
