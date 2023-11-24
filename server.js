@@ -17,7 +17,7 @@ fastify.get('/contacts/sync', async (request, reply) => {
 // Run the server
 const start = async () => {
     try {
-        await fastify.listen({ port: config.PORT });
+        await fastify.listen({ port: config.PORT, host: config.HOST });
     } catch (err) {
         log.error(err);
         process.exit(1);

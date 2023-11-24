@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const config = {
     PORT: Number(process.env.PORT),
+    HOST: process.env.HOST,
     API_BASE_URL: process.env.API_BASE_URL,
     ADD_CONCURRENCY_SIZE: Number(process.env.ADD_CONCURRENCY_SIZE),
     MAILCHIMP_EVENT_NAME: process.env.MAILCHIMP_EVENT_NAME,
