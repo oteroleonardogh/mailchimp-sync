@@ -4,7 +4,7 @@
   "description": "Syncs contacts from MockAPI to Mailchimp",
   "main": "server.js",
   "engines": {
-    "node": "18.15.0"
+    "node": "18"
   },  
   "scripts": {
     "start": "node server.js",
