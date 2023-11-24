@@ -14,16 +14,16 @@ fastify.get('/contacts/sync', async (request, reply) => {
     }
 });
 
-// Run the server
-const start = async () => {
-    try {
-        await fastify.listen({ port: config.PORT, host: config.HOST });
-    } catch (err) {
-        log.error(err);
-        process.exit(1);
-    }
-};
+// // Run the server
+// const start = async () => {
+//     try {
+//         await fastify.listen({ port: config.PORT, host: config.HOST });
+//     } catch (err) {
+//         log.error(err);
+//         process.exit(1);
+//     }
+// };
 
-start();
+// start();
 
 module.exports = fastify;
