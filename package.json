@@ -7,7 +7,6 @@
     "node": "18.x"
   },  
   "scripts": {
-    "start": "node app.js",
     "test": "jest"
   },
   "author": "Leonardo Otero <oteroleonardo@gmail.com>",
