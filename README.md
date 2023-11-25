@@ -12,6 +12,10 @@ This application syncs contacts from MockAPI to Mailchimp. It's built using Node
 - Out of the box ready to be deployed in Vercel
 - Unit tests with Jest.
 
+## Technical Design
+
+A Technical Design Document (TDD) may be found [here](https://docs.google.com/document/d/1C3H6NfypNfUvZXkITErf2MjLpeTDUAf0zlnszk32zgM/edit?usp=sharing)
+
 ## Project Walkthrough Video
 
 For a detailed walkthrough of this project, watch my video here: [Video Link](video_link)
@@ -43,7 +47,7 @@ npm install
 
 Create a *.env* file in the root of the project and add the following environment variables:
 
-```
+```bash
 // MAILCHIMP CONFIG
 MAILCHIMP_API_KEY=[YOUR_MAILCHIMP_API_KEY]
 MAILCHIMP_SERVER=us21
@@ -78,25 +82,25 @@ npm test
 
 ## Deploying Sync service
 
-To deploy and try the Sync service you will need to install vercel-cli:
+To deploy and try the Sync service, you will first need to install vercel-cli:
 
 ```bash
 npm i -g vercel
 ```
 
-Once installed vercel-cli, you will need to sign-up and login with you Vercel user:
+Once vercel-cli is installed, you will need to sign-up and login with you Vercel user:
 
 ```bash
 vercel login oteroleonardo@gmail.com
 ```
 
-Now you can deploy and try the Sync service so in the project root folder execute the following command:
+Now, to deploy and try the Sync service, navigate to the project root folder and execute the following command:
 
 ```bash
 vercel
 ```
 
-The Vercel command should print out a message with a *Preview URL* like the following one after completing its deployment:
+The Vercel command should print out a message with a *Preview URL* (the URL provided by Vercel after deployment) like the following one after completing its deployment:
 
 ```bash
 Vercel CLI 32.5.6
