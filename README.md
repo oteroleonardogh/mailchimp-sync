@@ -18,7 +18,7 @@ A Technical Design Document (TDD) may be found [here](https://docs.google.com/do
 
 ## Project Walkthrough Video
 
-For a detailed walkthrough of this project, watch my video here: [Video Link](video_link)
+For a detailed walkthrough of this project, watch my video here: [Video Link](https://drive.google.com/file/d/1J5fRmVHQDgp9B4dXJT8MLDe9y1REijSb/view?usp=sharing)
   
 ## Getting Started
 
